@@ -8,20 +8,20 @@ Single-CVE applicability triage for security researchers and defenders. Ask "am 
 
 A real assessment, against an environment profile holding one Debian 13 server running nginx:
 
-**CVE-2026-9256: not affected (conditional) · nginx OSS 1.26.3 (Debian 13)**
-
-The overflow is reachable only through rewrite directives whose regex uses overlapping PCRE captures and whose replacement references multiple captures in a redirect/args context. With no such rules in use, the vulnerable path is not exercised. This is a config-level reprieve, not a patched system; every other gate is open.
-
-| Condition | state | Sources |
-|---|---|---|
-| version in range 0.1.17-1.31.0 | 1.26.3: in range, not exonerating | [CVE.org](https://www.cve.org/CVERecord?id=CVE-2026-9256) · [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-9256) |
-| Debian backport fixed | no, trixie still vulnerable | [Debian tracker](https://security-tracker.debian.org/tracker/CVE-2026-9256) |
-| multi-capture rewrite rule (redirect/args) | not present | [CVE.org](https://www.cve.org/CVERecord?id=CVE-2026-9256) |
-| attacker prerequisites | unauth, network-reachable, no further gate | [CVE.org](https://www.cve.org/CVERecord?id=CVE-2026-9256) |
-
-*Rests on the confirmed absence of multi-capture rewrite rules (volatile: flips to affected if such a rule is added). CVE published 2026-05-22; package still unpatched in trixie, so patch when Debian ships the fix.*
-
-Consulted: [CVE.org record](https://www.cve.org/CVERecord?id=CVE-2026-9256) · [Debian security tracker](https://security-tracker.debian.org/tracker/CVE-2026-9256) · [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-9256) · [openwall oss-security](https://www.openwall.com/lists/oss-security/)
+> **CVE-2026-9256: not affected (conditional) · nginx OSS 1.26.3 (Debian 13)**
+> 
+> The overflow is reachable only through rewrite directives whose regex uses overlapping PCRE captures and whose replacement references multiple captures in a redirect/args context. With no such rules in use, the vulnerable path is not exercised. This is a config-level reprieve, not a patched system; every other gate is open.
+>
+> | Condition | state | Sources |
+> |---|---|---|
+> | version in range 0.1.17-1.31.0 | 1.26.3: in range, not exonerating | [CVE.org](https://www.cve.org/CVERecord?id=CVE-2026-9256) · [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-9256) |
+> | Debian backport fixed | no, trixie still vulnerable | [Debian tracker](https://security-tracker.debian.org/tracker/CVE-2026-9256) |
+> | multi-capture rewrite rule (redirect/args) | not present | [CVE.org](https://www.cve.org/CVERecord?id=CVE-2026-9256) |
+> | attacker prerequisites | unauth, network-reachable, no further gate | [CVE.org](https://www.cve.org/CVERecord?id=CVE-2026-9256) |
+> 
+> *Rests on the confirmed absence of multi-capture rewrite rules (volatile: flips to affected if such a rule is added). CVE published 2026-05-22; package still unpatched in trixie, so patch when Debian ships the fix.*
+> 
+> Consulted: [CVE.org record](https://www.cve.org/CVERecord?id=CVE-2026-9256) · [Debian security tracker](https://security-tracker.debian.org/tracker/CVE-2026-9256) · [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-9256) · [openwall oss-security](https://www.openwall.com/lists/oss-security/)
 
 ## What this is not
 
